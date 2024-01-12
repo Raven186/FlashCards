@@ -5,17 +5,17 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Themes',
       [{
-        name: 'Theme 1',
+        name: 'Кино',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        name: 'Theme 2',
+        name: 'Правда и ложь',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        name: 'Theme 3',
+        name: 'Лого',
         createdAt: new Date(),
         updatedAt: new Date()
       }])
