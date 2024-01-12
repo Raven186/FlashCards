@@ -6,6 +6,7 @@ function Layout({ title, children }) {
         <title>{title}</title>
         <link rel="stylesheet" href="/Styles/style.css" />
         <script defer src="/scripts/Begin.js" />
+        <script defer src="/scripts/NextQuestion.js" />
       </head>
       <body>
         <button type='submit' className='sumbit-button'>

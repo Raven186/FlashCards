@@ -9,12 +9,14 @@ function QuestionPage({ title, theme, question, index }) {
                 <div className='card-question'>
                     <img src={question.img} />
                     <h2>{question.question}</h2>
-                    <input className='input-value' />
-                    <button type='submit' className='sumbit-button'>
-                        <a href={`/${theme.id}/${+index + 1}`}>ЖМАЙ!</a>
-                    </button>
+                    <form className='Answer' data-id={question.id}>
+                        <input name='answer' className='input-value' />
+                        <button type='submit'>ПРОВЕРКА!</button>
+                        <a href={`/${theme.id}/${+index + 1}`}>ДАЛЕЕ!</a>
+                    </form>
                 </div>
             </div>
+            <h1 className='nasw'></h1>
         </Layout>
     )
 }
