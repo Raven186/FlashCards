@@ -34,18 +34,24 @@ router.get("/:themeId", async (req, res) => {
 });
 
 
-router.get("/:themeId/:questionId", async (req, res) => {
+router.get("/:themeId/:index", async (req, res) => {
   try {
-    const { themeId, questionId } = req.params;
+    const { themeId, index } = req.params;
     const theme = await Theme.findOne({ where: { id: themeId } });
-    const question = await Question.findOne({ where: { theme_id: themeId, id: questionId } })
-    const html = res.renderComponent(QuestionPage, {
-      title: "Themes page",
-      theme,
-      question,
-    });
-    res.send(html);
-  } catch ({ message }) {
+    const questions = await Question.findAll({ where: { theme_id: themeId } });
+    if (index >= questions.length) {
+      res.redirect('/')
+    } else {
+      const html = res.renderComponent(QuestionPage, {
+        title: "Themes page",
+        theme,
+        index,
+        question: questions[index],
+      });
+      res.send(html);
+    }
+  }
+  catch ({ message }) {
     res.json({ message });
   }
 });

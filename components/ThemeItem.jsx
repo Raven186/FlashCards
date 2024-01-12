@@ -1,6 +1,6 @@
 const React = require('react')
 
-function ThemeItem({ theme }) {
+function ThemeItem({ theme, question }) {
   return (
     <div className="card">
       <div className="card-body">
